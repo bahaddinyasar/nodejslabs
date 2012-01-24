@@ -1,7 +1,20 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  console.log(req);
-  res.end('Hello Nodejslabs!!!\n');
-}).listen(process.env.PORT, "0.0.0.0");
-console.log('Server running at http://localhost:80/');
+var express = require('express');
+
+var app = express.createServer();
+
+app.configure(function() {
+    app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use(express.logger());
+	app.use(app.router);
+	app.use(express.static(__dirname + '/public')); // url: http://..../createUser.html
+	// app.use('/public',express.static(__dirname + '/public')); // url:  http://..../public/createUser.html
+});
+
+app.get('/', function(req, res) {
+    res.send('Hello Nodejslabs\n');
+	//res.render('index.html');
+});
+
+app.listen(process.env.PORT);
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
