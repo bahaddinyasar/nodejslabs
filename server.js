@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express.createServer(),
-    fs = require('fs');
+    util = require('./util.js');
 
 app.register('.html', require('jade'));
 app.set("view options", {
@@ -15,11 +15,9 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/code', function(req, res) {
-	fs.readFile(__filename, 'utf8', function(err, data) {
-		if (err) {
-			return console.log(err);
-		}
+app.get('/code/:file?', function(req, res) {
+	var filepath = req.params.file ? __dirname + '/' + req.params.file : __filename;
+	util.getFileContents(filepath, function(data) {
 		res.send(data);
 	});
 });
