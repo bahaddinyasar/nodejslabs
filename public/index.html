@@ -28,7 +28,7 @@
   
   <script>
     $(function() {
-        $('body').append( $('<pre>').load('/code'));
+        $('body').append($('<div class="syntaxhighlighter  javascript">').$('<pre>').load('/code'));
         SyntaxHighlighter.all();
     });
   </script>
