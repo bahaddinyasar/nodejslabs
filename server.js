@@ -15,10 +15,16 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/code/:file?', function(req, res) {
-	var filepath = req.params.file ? __dirname + '/' + req.params.file : __filename;
+app.get('/code/:fileName?', function(req, res) {
+	var filepath = req.params.fileName ? __dirname + '/' + req.params.fileName : __filename;
 	util.getFileContents(filepath, function(data) {
 		res.send(data);
+	});
+});
+
+app.get('/files/:fileExtension?', function(req, res) {
+	util.getDirectoryContents(__dirname,req.params.fileExtension, function(data) {
+		res.json(data);
 	});
 });
 
