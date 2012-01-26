@@ -8,13 +8,15 @@
   <title>NodeJsLabs</title>
   
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css">
+  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css">
+  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
  
 </head>
 
 <body>
 
 <h1> Hello Nodejs Labs ...</h1> 
-
  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -22,14 +24,11 @@
   <script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/scripts/shCore.js"></script>
   <script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/scripts/shBrushJScript.js"></script>
 
-  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css">
-  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
-
-  
   <script>
     $(function() {
-        $('body').append($('<div>').addClass('syntaxhighlighter  javascript').append($('<pre>').load('/code')));
-        SyntaxHighlighter.all();
+        $('body').append($('<pre>',{'class': 'brush: js'}).load('/code', function() {
+        	SyntaxHighlighter.highlight({}, this);
+        }));
     });
   </script>
 </body>
