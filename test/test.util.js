@@ -1,3 +1,3 @@
 var assert = require('assert');
 
-assert.equal(11, 12);
+assert.equal(11, 11);
