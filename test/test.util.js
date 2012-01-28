@@ -1,9 +1,12 @@
-var assert = require('assert');
+var assert = require('should'),
+    util = require('../util.js');
 
-describe('test 1', function(){
-  it('should workk', function(){
-    assert.equal(5,6);
-  });
-  
-  
+describe('util.getDirectoryContents()', function() {
+    it('should return nonzero items', function() {
+        util.getDirectoryContents('..', '', function(files) {
+            files.length.should.be.above(0);
+            console.log('length: '+files.length);
+            done();
+        });
+    });
 });
