@@ -10,6 +10,6 @@
         "should": "*"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha --reporter spec --ui tdd"
+        "test": "./node_modules/mocha/bin/mocha --reporter spec --ui tdd "
     }
 }
