@@ -4,5 +4,9 @@
   "dependencies": {
         "express":"2.5.6",
         "jade":"0.20.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
   }
 }
