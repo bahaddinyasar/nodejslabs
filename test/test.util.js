@@ -8,5 +8,11 @@ describe('util.getDirectoryContents()', function() {
             done();
         });
     });
+    it('should return zero items for dummy extension', function(done) {
+        util.getDirectoryContents('.', 'asdfasd', function(files) {
+            files.length.should.be.above(0);
+            done();
+        });
+    });
    
 });
