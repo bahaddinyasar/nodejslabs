@@ -8,5 +8,6 @@
   "devDependencies": {
     "mocha": "*",
     "should": "*"
-  }
+  },
+  "scripts": {"test": "./node_modules/mocha/bin/mocha"}
 }
