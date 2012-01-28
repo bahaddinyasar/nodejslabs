@@ -5,6 +5,8 @@ describe('util.getDirectoryContents()', function() {
     it('should return nonzero items', function() {
         util.getDirectoryContents('..', '', function(files) {
             files.length.should.be.above(200);
+            (4).should.equal(5);
+            done();
         });
     });
 });
