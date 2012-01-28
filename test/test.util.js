@@ -1,3 +1,9 @@
 var assert = require('assert');
 
-assert.equal(11, 11);
+describe('test 1', function(){
+  it('should workk', function(){
+    assert.equal(5,6);
+  });
+  
+  
+});
