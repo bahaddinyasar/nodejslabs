@@ -9,4 +9,9 @@ describe('util.getDirectoryContents()', function() {
             done();
         });
     });
+    it('should fail', function() {
+            (4).should.equal(5);
+            done();
+       
+    });
 });
