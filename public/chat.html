@@ -15,7 +15,7 @@
     
 $('#connectBtn').on('click',function(){
   var nickname = prompt("Lütfen bir isim giriniz:");
-  $("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
+  //$("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
   $('#prompt').dialog();
 
   var socket = io.connect();
@@ -30,6 +30,7 @@ $('#connectBtn').on('click',function(){
   
   socket.on('disconnect', function(){
    alert('disconnected');
+   $('#prompt').dialog();
   });
 
   // listener, whenever the server emits 'updatechat', this updates the chat body
@@ -78,6 +79,7 @@ $('#connectBtn').on('click',function(){
 </script>
 </head>
 <body>
+<div id="prompt" style='display:none'>Bağlantı kurulurken lütfen bekleyiniz...</div>
 
 <div style="float:left;width:150px;height:400px;border:1px solid black;padding:10px;overflow:auto;">
 
