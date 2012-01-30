@@ -1,8 +1,11 @@
 var express = require('express'),
     app = express.createServer(),
-    util = require('./util.js');
-
+    util = require('./util.js'),
+    io = require('socket.io').listen(app),
+    chat = require('./chat.js');
+ 
 app.register('.html', require('jade'));
+
 app.set("view options", {
     layout: false
 });
@@ -28,6 +31,8 @@ app.get('/files/:fileExtension?', function(req, res) {
 	});
 });
 
+chat.setIoObject(io);
+io.sockets.on('connection', chat.connectionHandler);
 
 app.listen(process.env.PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
