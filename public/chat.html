@@ -7,9 +7,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 <script>
 
-  nickname = prompt("Lütfen bir isim giriniz:");
+  //nickname = prompt("Lütfen bir isim giriniz:");
 
-  //loadingMsgDialog = $("body").append("Bağlantı kurulurken lütfen bekleyiniz...");
   //loadingMsgDialog.dialog("open");
 
   var socket = io.connect('http://nodejslabs.no.de:80');
@@ -36,6 +35,11 @@
 
   // on load of page
   $(function(){
+      
+      $("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
+      $('#prompt').dialog();
+  
+      
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
