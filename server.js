@@ -34,7 +34,10 @@ app.get('/files/:fileExtension?', function(req, res) {
 	});
 });
 
-io.set('log level', 4);    // log level -> 4: debug
+app.get('/ping', function(req, res) {
+    res.send('pong');
+});
+
 chat.setIoObject(io);
 io.sockets.on('connection', chat.connectionHandler);
 

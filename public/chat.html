@@ -30,6 +30,7 @@ $('#connectBtn').on('click',function(){
   
   socket.on('disconnect', function(){
    alert('disconnected');
+   $.get('/ping', function(data) { alert('ping response: '+data) });
    $('#prompt').dialog();
   });
 
