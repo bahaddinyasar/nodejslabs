@@ -30,11 +30,12 @@
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
+      $('#data').focus();
     });
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
-      if(e.which == 13) {
+      if(e.which == 13 || e.keyCode == 13) {
         $(this).blur();
         $('#datasend').focus().click();
       }
@@ -42,14 +43,14 @@
   });
 
 </script>
-<div style="width:500px;height:500px;">
+<div style="width:600px;height:500px;">
 <div style="float:left;width:150px;border-right:1px solid black;height:500px;padding:10px;overflow:auto;">
   <b>USERS</b>
   <div id="users"></div>
 </div>
 <div style="float:left;width:350px;height:500px;overflow:auto;padding:10px;">
   <div id="conversation"></div>
-  <input id="data" style="width:400px;" />
+  <input id="data" style="width:300px;" />
   <input type="button" id="datasend" value="send" />
 </div>
 </div>
