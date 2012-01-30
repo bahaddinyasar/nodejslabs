@@ -9,10 +9,8 @@
 
   nickname = prompt("Lütfen bir isim giriniz:");
 
-  loadingMsgDialog = $("<div>").html("Bağlantı kurulurken lütfen bekleyiniz...");
+  loadingMsgDialog = jQuery("body").append("<div>Bağlantı kurulurken lütfen bekleyiniz...</div>");
   loadingMsgDialog.dialog("open");
-
-  //loadingMsgDialog = $("<div><p>Bağlantı kurulurken lütfen bekleyiniz...</p></div>").dialog({modal: true});
 
   var socket = io.connect('http://nodejslabs.no.de:80');
 
@@ -20,8 +18,7 @@
   socket.on('connect', function(){
     // call the server-side function 'adduser' and send one parameter (value of prompt)
     socket.emit('adduser', nickname);
-    //$("#loadingMsgDialog").dialog("destroy");
-    loadingMsgDialog.html('');
+    //loadingMsgDialog.dialog("destroy");
   });
 
   // listener, whenever the server emits 'updatechat', this updates the chat body
