@@ -3,26 +3,35 @@
 <title>Chat Sayfası</title>
 <script src="/socket.io/socket.io.js"></script>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 <script>
 
-  //nickname = prompt("Lütfen bir isim giriniz:");
+ 
 
-  //loadingMsgDialog.dialog("open");
+  // on load of page
+  $(function(){
+      
+    
+$('#connectBtn').on('click',function(){
+  var nickname = prompt("Lütfen bir isim giriniz:");
+  $("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
+  $('#prompt').dialog();
 
-  var socket = io.connect('http://nodejslabs.no.de:80');
+  var socket = io.connect();
 
   // on connection to server, ask for user's name with an anonymous callback
   socket.on('connect', function(){
     // call the server-side function 'adduser' and send one parameter (value of prompt)
+   $('#prompt').dialog('close');
     socket.emit('adduser', nickname);
     //loadingMsgDialog.dialog("destroy");
   });
 
   // listener, whenever the server emits 'updatechat', this updates the chat body
-  socket.on('updatechat', function (username, data) {
-    $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+  socket.on('updatechat', function ( data) {
+    $('#conversation').append(data.time+'<b> '+data.user + ':</b> ' + data.msg + '<br>').animate({ scrollTop: 60000 });
+    //$('#conversation').animate({ scrollTop: 60000 }); 
   });
 
   // listener, whenever the server emits 'updateusers', this updates the username list
@@ -32,12 +41,6 @@
       $('#users').append('<div>' + key + '</div>');
     });
   });
-
-  // on load of page
-  $(function(){
-      
-      $("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
-      $('#prompt').dialog();
   
       
     // when the client clicks SEND
@@ -62,20 +65,27 @@
         $('#datasend').focus().click();
       }
     });
+    
+    });
+
+ 
   });
 
 </script>
 </head>
 <body>
+
 <div style="float:left;width:150px;height:400px;border:1px solid black;padding:10px;overflow:auto;">
+
   <b>USERS</b>
   <div id="users" style=""></div>
 </div>
-<div style="float:left;width:350px;height:400px;border:1px solid black;padding:10px;">
+<div style="float:left;width:450px;height:400px;border:1px solid black;padding:10px;">
+  <button id="connectBtn">Baglan</button>
   <div id="conversation" style="width:100%;height:350px;overflow:auto;"></div>
   <input id="data" style="width:250px;" />
-  <input type="button" id="datasend" value="Gönder"/> <br/>
-  <input type="button" id="clearBtn" value="Temizle"/>
+  <button id="datasend">Gönder</button>
+  <button id="clearBtn">Temizle</button>
 </div>
 </body>
 </html>

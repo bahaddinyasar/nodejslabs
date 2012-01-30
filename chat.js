@@ -1,4 +1,4 @@
-
+ var dateformat = require('dateformat');
 // usernames which are currently connected to the chat
 var usernames = {};
 
@@ -12,7 +12,12 @@ module.exports.connectionHandler = function (socket) {
   // when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
     // we tell the client to execute 'updatechat' with 2 parameters
-    ioObject.sockets.emit('updatechat', socket.username, data);
+
+    ioObject.sockets.emit('updatechat', {
+        'msg':data,
+        'user':socket.username,
+        'time': dateformat("hh:MM:ss")
+        } );
   });
 
   // when the client emits 'adduser', this listens and executes
@@ -22,9 +27,11 @@ module.exports.connectionHandler = function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     // echo to client they've connected
-    socket.emit('updatechat', 'SERVER', 'you have connected');
+    var timestamp = new Date().getTime();
+    
+    socket.emit('updatechat', {'msg':'you have connected','user':'SERVER','time':dateformat("hh:MM:ss")});
     // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
+    socket.broadcast.emit('updatechat', {'msg':username + ' has connected','user':'SERVER','time':dateformat("hh:MM:ss")});
     // update the list of users in chat, client-side
     ioObject.sockets.emit('updateusers', usernames);
   });
@@ -36,6 +43,6 @@ module.exports.connectionHandler = function (socket) {
     // update list of users in chat, client-side
     ioObject.sockets.emit('updateusers', usernames);
     // echo globally that this client has left
-    socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+    socket.broadcast.emit('updatechat', {'msg':username + ' has disconnected','user':'SERVER','time':dateformat("hh:MM:ss")});
   });
 };

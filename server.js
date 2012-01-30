@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express.createServer(),
     util = require('./util.js'),
+    dateformat = require('dateformat'),
     io = require('socket.io').listen(app),
     chat = require('./chat.js');
  
@@ -13,6 +14,8 @@ app.set("view options", {
 app.configure(function() {
     app.use(express.bodyParser());
 	app.use(express.methodOverride());
+    app.use(express.cookieParser());
+    app.use(express.session({ secret: "nodejslabssecret" }));
 	app.use(express.logger());
 	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
