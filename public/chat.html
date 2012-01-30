@@ -9,7 +9,7 @@
 
   nickname = prompt("Lütfen bir isim giriniz:");
 
-  //$("<div id='loadingMsgDialog'>Bağlantı kurulurken lütfen bekleyiniz...</div>").dialog({modal: true});
+  loadingMsgDialog = $("<div><p>Bağlantı kurulurken lütfen bekleyiniz...</p></div>").dialog({modal: true});
 
   var socket = io.connect('http://nodejslabs.no.de:80');
 
