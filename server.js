@@ -38,6 +38,9 @@ app.get('/ping', function(req, res) {
     res.send('pong');
 });
 
+
+io.set('transports', ['websocket']);
+io.set('log level', 4);
 chat.setIoObject(io);
 io.sockets.on('connection', chat.connectionHandler);
 
