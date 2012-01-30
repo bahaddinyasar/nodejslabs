@@ -25,7 +25,11 @@ $('#connectBtn').on('click',function(){
     // call the server-side function 'adduser' and send one parameter (value of prompt)
    $('#prompt').dialog('close');
     socket.emit('adduser', nickname);
-    //loadingMsgDialog.dialog("destroy");
+    
+  });
+  
+  socket.on('disconnect', function(){
+   alert('disconnected');
   });
 
   // listener, whenever the server emits 'updatechat', this updates the chat body
