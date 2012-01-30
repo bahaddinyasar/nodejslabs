@@ -1,0 +1,1 @@
+[![Build Status](https://secure.travis-ci.org/inancsevinc/nodejslabs.png)](http://travis-ci.org/inancsevinc/nodejslabs)
