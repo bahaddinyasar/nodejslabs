@@ -2,15 +2,15 @@
 <head>
 <title>Chat Sayfası</title>
 <script src="/socket.io/socket.io.js"></script>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 <script>
 
   nickname = prompt("Lütfen bir isim giriniz:");
 
   loadingMsgDialog = $("<div>").html("Bağlantı kurulurken lütfen bekleyiniz...");
-  $("body").prepend(loadingMsgDialog);
+  loadingMsgDialog.dialog("open");
 
   //loadingMsgDialog = $("<div><p>Bağlantı kurulurken lütfen bekleyiniz...</p></div>").dialog({modal: true});
 
