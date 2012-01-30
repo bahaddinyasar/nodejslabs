@@ -5,36 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="NodeJsLabs">
   <meta name="author" content="Bahaddin Yasar, Inanc Sevinc">
-  <title>NodeJsLabs</title>
-  
-  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css">
-  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css">
-  <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
-
- 
+  <title>NodeJsLabs Main Page</title>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
 </head>
 
 <body>
-
-<h1> Nodejs Labs ...</h1> 
- 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
-  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-  
-  <script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/scripts/shCore.js"></script>
-  <script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/scripts/shBrushJScript.js"></script>
-
-  <script>
-    $(function() {
-        $.getJSON('/files/js',function(files){
-            $.each(files,function(index,filename){
-                $('body').append($('<pre>', {'title': filename,'class': 'brush: js'})
-                .load('/code/'+filename, function() {
-                	SyntaxHighlighter.highlight({}, this);
-                }));
-            });
-        });
-    });
-  </script>
+<a href="/code.html">Source Codes</a>
+<br/>
+<a href="/chat.html">Chat</a>
 </body>
 </html>
