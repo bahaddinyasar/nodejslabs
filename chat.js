@@ -27,7 +27,6 @@ module.exports.connectionHandler = function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     // echo to client they've connected
-    var timestamp = new Date().getTime();
     
     socket.emit('updatechat', {'msg':'you have connected','user':'SERVER','time':dateformat("hh:MM:ss")});
     // echo globally (all clients) that a person has connected
@@ -43,6 +42,6 @@ module.exports.connectionHandler = function (socket) {
     // update list of users in chat, client-side
     ioObject.sockets.emit('updateusers', usernames);
     // echo globally that this client has left
-    socket.broadcast.emit('updatechat', {'msg':username + ' has disconnected','user':'SERVER','time':dateformat("hh:MM:ss")});
+    socket.broadcast.emit('updatechat', {'msg':socket.username + ' has disconnected','user':'SERVER','time':dateformat("hh:MM:ss")});
   });
 };
