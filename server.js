@@ -39,7 +39,7 @@ app.get('/ping', function(req, res) {
 });
 
 
-io.set('transports', ['websocket']);
+io.set('transports', ['websocket', 'jsonp-polling']);
 io.set('log level', 4);
 chat.setIoObject(io);
 io.sockets.on('connection', chat.connectionHandler);
