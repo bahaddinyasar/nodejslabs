@@ -11,7 +11,8 @@
 
   // on load of page
   $(function(){
-      
+    
+    windowInBlurState = false;
     
 $('#connectBtn').on('click',function(){
   var nickname = prompt("Lütfen bir isim giriniz:");
@@ -37,7 +38,7 @@ $('#connectBtn').on('click',function(){
   // listener, whenever the server emits 'updatechat', this updates the chat body
   socket.on('updatechat', function ( data) {
     $('#conversation').append(data.time+'<b> '+data.user + ':</b> ' + data.msg + '<br>').animate({ scrollTop: 60000 });
-    //$('#conversation').animate({ scrollTop: 60000 }); 
+    if(windowInBlurState)  document.title = "New Message came from " + data.user;
   });
 
   // listener, whenever the server emits 'updateusers', this updates the username list
@@ -46,6 +47,7 @@ $('#connectBtn').on('click',function(){
     $.each(data, function(key, value) {
       $('#users').append('<div>' + key + '</div>');
     });
+    if(windowInBlurState)  document.title = "New User connected";
   });
   
       
@@ -74,7 +76,8 @@ $('#connectBtn').on('click',function(){
     
     });
 
- 
+    window.onfocus  = function(){   windowInBlurState = false;  };
+    window.onblur   = function(){   windowInBlurState = true;   };
   });
 
 </script>
