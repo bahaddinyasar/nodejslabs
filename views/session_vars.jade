@@ -1,2 +1,9 @@
-div#divId
-  h1 Hellooooooo
+!!! 5
+html
+  head
+    title= "Session Vars - Key Value Pairs"
+  body
+    h1 Session Variables
+        ul#sessionVars
+          each value, key in session
+            li #{key} #{value}
