@@ -17,7 +17,7 @@ app.configure(function() {
 	app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({ secret: "nodejslabssecret" }));
-    app.use(everyauth.middleware());
+   // app.use(everyauth.middleware());
 	app.use(express.logger());
 	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
@@ -47,7 +47,7 @@ io.set('log level', 4);
 chat.setIoObject(io);
 io.sockets.on('connection', chat.connectionHandler);
 
-everyauth.helpExpress(app);
+//everyauth.helpExpress(app);
 
 app.listen(process.env.PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
