@@ -3,7 +3,8 @@ var express = require('express'),
     util = require('./util.js'),
     dateformat = require('dateformat'),
     io = require('socket.io').listen(app),
-    chat = require('./chat.js');
+    chat = require('./chat.js'),
+    everyauth = require('everyauth');
  
 app.register('.html', require('jade'));
 
@@ -16,6 +17,7 @@ app.configure(function() {
 	app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({ secret: "nodejslabssecret" }));
+    app.use(everyauth.middleware());
 	app.use(express.logger());
 	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
@@ -44,6 +46,8 @@ io.set('transports', ['xhr-polling', 'jsonp-polling']);
 io.set('log level', 4);
 chat.setIoObject(io);
 io.sockets.on('connection', chat.connectionHandler);
+
+everyauth.helpExpress(app);
 
 app.listen(process.env.PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
