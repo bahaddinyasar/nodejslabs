@@ -15,7 +15,16 @@
     windowInBlurState = false;
     
 $('#connectBtn').on('click',function(){
-  var nickname = prompt("Lütfen bir isim giriniz:");
+    
+    if (typeof(localStorage) == 'undefined') {
+        alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+        var nickname = prompt("Lütfen bir isim giriniz:");
+    }
+    else {
+        var nickname = localStorage.nickname = localStorage.nickname || prompt("Lütfen bir isim giriniz:");
+    }
+    
+  
   //$("body").append( $('<div>',{id:'prompt'}).text("Bağlantı kurulurken lütfen bekleyiniz...") );
   $('#prompt').dialog();
 
