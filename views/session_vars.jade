@@ -7,3 +7,12 @@ html
         ul#sessionVars
           each value, key in session
             li #{key} #{value}
+    
+    h1 Add a New Session Variable
+        form(action="/session_vars/add", method="post")
+            label(for="keyInput") Key:
+                input(type="text", name="keyInput", value="")
+            label(for="valueInput") Value:
+                input(type="text", name="valueInput", value="")
+            buttons
+                input(type="submit", value="Add")
