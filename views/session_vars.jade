@@ -9,7 +9,7 @@ html
             li #{key} #{value}
     
     h1 Add a New Session Variable
-        form(action="/session_vars/add", method="post")
+        form(action="/session_vars/add", method="get")
             label(for="keyInput") Key:
                 input(type="text", name="keyInput", value="")
             label(for="valueInput") Value:
