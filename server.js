@@ -4,7 +4,8 @@ var express = require('express'),
     dateformat = require('dateformat'),
     io = require('socket.io').listen(app),
     chat = require('./chat.js'),
-    everyauth = require('everyauth');
+    everyauth = require('everyauth'),
+    jadeConfig = require('./jadeConf.js');
  
 app.register('.html', require('jade'));
 
@@ -18,10 +19,13 @@ app.configure(function() {
     app.use(express.cookieParser());
     app.use(express.session({ secret: "nodejslabssecret" }));
    // app.use(everyauth.middleware());
+    app.set('view engine', 'jade');
 	app.use(express.logger());
 	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
 });
+
+jadeConfig.configurePaths(app);
 
 app.get('/code/:fileName?', function(req, res) {
 	var filepath = req.params.fileName ? __dirname + '/' + req.params.fileName : __filename;
