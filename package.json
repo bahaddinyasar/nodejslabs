@@ -9,4 +9,5 @@
         "dateformat":"*",
         "everyauth":"*"
   }
+  "scripts": { "start": "./app.js" }
 }
