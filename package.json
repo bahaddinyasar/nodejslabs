@@ -8,5 +8,5 @@
         "dateformat":"*",
         "everyauth":"*"
   },
-  "scripts": { "start": "./app.js" }
+  "scripts": { "start": "node ./app.js" }
 }
