@@ -1,5 +1,4 @@
-
-module.exports.configurePaths = function (app) {
+module.exports = function (app) {
   
   app.get('/session_vars', function (req, res) {
     if(req.query.operation) {

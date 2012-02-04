@@ -19,4 +19,14 @@ module.exports.getDirectoryContents = function(dirpath, fileExtension, callback)
 		callback(filteredArray);
 	});
 };
+
+module.exports.requireCodeForApp = function(dirpath, app) {
+    var files = fs.readdirSync(dirpath);
+    if(files) {
+        files.forEach(function(file){
+            if( (/\.js$/).test(file) ) 
+                require(dirpath+'/'+file)(app);
+        });
+    }
+};
   
