@@ -3,6 +3,8 @@ var express = require('express'),
 
 module.exports.boot = function (app) {
     
+    //TODO: move everyauth logic to authorization.js
+    
     var usersById = {};
     var nextUserId = 0;
     var usersByTwitId = {};
