@@ -24,9 +24,7 @@ module.exports.boot = function (app) {
     })
     .redirectPath('/login');
     
-//    app.register('.html', require('jade'));
-    
-    app.configure(function() {
+   app.configure(function() {
     	app.use(express.logger());
         app.use(express.bodyParser());
         app.use(express.methodOverride());
