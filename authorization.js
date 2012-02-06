@@ -21,7 +21,7 @@ module.exports = function(app) {
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
       return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
     })
-    .redirectPath('/secure');
+    .redirectPath('/login');
   
   
     app.all('/secure*', function(req, res, next) {
