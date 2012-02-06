@@ -5,6 +5,6 @@ module.exports = function(app) {
     });
     
     app.get('/secure/session', function(req, res) {
-        res.render('session_vars');
+        res.render('session_vars',{'session':req.session});
     });
 };
