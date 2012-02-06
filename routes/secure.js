@@ -1,6 +1,10 @@
 module.exports = function(app) {
   
     app.get('/login', function(req, res) {
-        res.render('secure');
+        res.render('login');
+    });
+    
+    app.get('/secure/session', function(req, res) {
+        res.render('session_vars');
     });
 };
