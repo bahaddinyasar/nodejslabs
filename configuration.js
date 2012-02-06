@@ -3,8 +3,6 @@ var express = require('express'),
 
 module.exports.boot = function (app) {
     
-    require('./authorization.js')(app,everyauth); 
-    
     var usersById = {};
     var nextUserId = 0;
     var usersByTwitId = {};
