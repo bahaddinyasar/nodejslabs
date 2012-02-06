@@ -1,5 +1,3 @@
-var everyauth = require('everyauth');
-
 module.exports = function(app,everyauth) {
     
      var usersById = {};
