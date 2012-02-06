@@ -12,4 +12,6 @@ html
       h2 Authenticated
       - if (everyauth.twitter)
         h3 Twitter User Data
-        p= JSON.stringify(everyauth.twitter.user)
+            ul#twitterUserProperties
+                each value, key in everyauth.twitter.user
+                    li #{key} #{value}
