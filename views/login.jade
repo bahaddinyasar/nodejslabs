@@ -1,0 +1,19 @@
+!!! 5
+html
+  head
+    title= "Secure Page Example"
+  body
+    - if (!everyauth.loggedIn)
+      h2 Not Authenticated
+      #twitter-login
+        a(href='/auth/twitter', style='border: 0px')
+          img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
+    - else
+      h2 Authenticated
+      - if (everyauth.twitter)
+        h3 Twitter User Data
+            br
+            img(src="#{everyauth.twitter.user.profile_image_url_https}")
+            ul#twitterUserProperties
+                each value, key in everyauth.twitter.user
+                    li #{key} #{value}
