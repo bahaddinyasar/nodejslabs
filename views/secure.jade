@@ -12,6 +12,8 @@ html
       h2 Authenticated
       - if (everyauth.twitter)
         h3 Twitter User Data
+            br
+            img(src="#{everyauth.twitter.user.profile_image_url_https}")
             ul#twitterUserProperties
                 each value, key in everyauth.twitter.user
                     li #{key} #{value}
