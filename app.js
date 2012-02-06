@@ -3,8 +3,12 @@ var app = require('express').createServer(),
 
 // to make util global, omit var. 
 util = require('./util.js');
+
 require('./configuration.js').boot(app); 
+require('./authorization.js')(app); 
+
 util.requireCodeForApp(__dirname+'/routes',app); 
+
 require('./chat.js')(io);
 
 app.listen(process.env.PORT);
