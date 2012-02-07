@@ -5,6 +5,8 @@ var app = require('express').createServer(),
 util = require('./util.js');
 
 require('./configuration.js').boot(app); 
+require('./authorization.js')(app); 
+
 util.requireCodeForApp(__dirname+'/routes',app); 
 
 require('./chat.js')(io);

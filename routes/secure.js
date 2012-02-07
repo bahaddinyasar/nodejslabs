@@ -21,4 +21,8 @@ module.exports = function(app) {
     app.get('/secure/facebookUser', function(req, res) {
         res.render('facebookUser');
     });
+
+    app.get('/secure/session', function(req, res) {
+        res.render('session_vars',{'session':req.session});
+    });
 };
