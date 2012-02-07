@@ -23,6 +23,9 @@ module.exports = function(app) {
     });
 
     app.get('/secure/session', function(req, res) {
+        if(req.query.operation) {
+            req.session[req.query.keyInput] = req.query.valueInput;
+        }
         res.render('session_vars',{'session':req.session});
     });
 };
