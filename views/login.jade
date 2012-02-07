@@ -1,0 +1,17 @@
+!!! 5
+html
+  head
+    title= "Login Page"
+  body
+    h3 You can authenticate by any of the following options:
+      br
+      br
+      #twitter-login
+        a(href='/auth/twitter', style='border: 0px')
+          img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
+      br
+      #facebook-login
+        a(href='/auth/facebook', style='border: 0px')
+          img(style='border: 0px', src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico")
+          span Facebook
+        

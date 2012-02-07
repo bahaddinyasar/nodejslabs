@@ -1,0 +1,10 @@
+!!! 5
+html
+    head
+        title= "Twitter User"
+    body
+        h2 Twitter User
+            img(src="#{everyauth.twitter.user.profile_image_url_https}")
+            ul#twitterUserProperties
+                each value, key in everyauth.twitter.user
+                    li #{key} #{value}

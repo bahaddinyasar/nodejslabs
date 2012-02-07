@@ -1,0 +1,10 @@
+!!! 5
+html
+    head
+        title= "Facebook User"
+    body
+        h2 Facebook User
+            img(src="#{everyauth.twitter.user.profile_image_url_https}")
+            ul#twitterUserProperties
+                each value, key in everyauth.twitter.user
+                    li #{key} #{value}

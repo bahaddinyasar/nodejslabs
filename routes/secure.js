@@ -1,7 +1,24 @@
 module.exports = function(app) {
   
-    app.get('/secure', function(req, res) {
-        res.render('secure');
-    });  
+    app.get('/secure/*', function(req, res, next) {
+        if (req.session.auth == undefined || !req.session.auth.loggedIn)
+            res.redirect('/login');
+        else
+            next();
+    });
+
+    app.get('/secure/', function(req, res) {
+        if (req.session.auth.twitter)
+            res.redirect('/secure/twitterUser');
+        else if (req.session.auth.facebookUser)
+            res.redirect('/secure/facebookUser');        
+    });
     
+    app.get('/secure/twitterUser', function(req, res) {
+        res.render('twitterUser');
+    });
+
+    app.get('/secure/facebookUser', function(req, res) {
+        res.render('facebookUser');
+    });
 };
