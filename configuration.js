@@ -1,5 +1,7 @@
-var express = require('express'),
-    everyauth = require('everyauth');
+var express = require('express');
+
+// to make util global, omit var.
+everyauth = require('everyauth');
 
 module.exports.boot = function (app) {
     
@@ -24,7 +26,13 @@ module.exports.boot = function (app) {
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
       return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
     })
-    .redirectPath('/login');
+    .redirectPath('/secure/twitterUser');
+
+    app.register('.html', require('jade'));
+    
+    app.set("view options", {
+        layout: false
+    });
     
    app.configure(function() {
     	app.use(express.logger());
