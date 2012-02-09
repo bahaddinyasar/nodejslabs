@@ -1,7 +1,7 @@
 var express = require('express');
 
 // to make util global, omit var.
-dbconnection = require('mongoskin').db('mongodb://nodejslab:deneme1234@staff.mongohq.com:10017/nodejslabs');
+dbconnection = require('mongoskin').db('mongodb://nodejslabs:deneme1234@staff.mongohq.com:10017/nodejslabs');
 
 everyauth = require('everyauth');
 
