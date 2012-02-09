@@ -6,7 +6,8 @@
         "jade":"0.20.0",
         "socket.io": "",
         "dateformat":"*",
-        "everyauth":"*"
+        "everyauth":"*",
+        "mongoskin":"*"
   },
   "scripts": { "start": "node ./app.js" }
 }
