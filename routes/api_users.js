@@ -89,8 +89,8 @@ module.exports = {
     
     // DELETE /users/:id
 	_delete: function(req, res) {
-	    var users = dbconnection.collection('users');
-        users.removeById(req.params.id, function(err) {
+        var theId = req.params.id ? req.params.id : req.body.id;  
+        users.removeById(theId, function(err) {
             if (err)  {
     			res.json({"success": "false", "errorMsg" : err.message});
 			} else {
