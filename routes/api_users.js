@@ -2,13 +2,13 @@ module.exports = function(app) {
     
     var users = dbconnection.collection('users');
     
-    app.get('/users', function(req, res) {
+    app.get('/api/users', function(req, res) {
         users.find().toArray(function(err, items) {
     	    if (err) throw err;
 		    res.json(items);
     	});
     });
-    app.post('/users', function(req, res) {
+    app.post('/api/users', function(req, res) {
         users.insert({
             name: req.body.name,
         	surname: req.body.surname,
@@ -19,19 +19,19 @@ module.exports = function(app) {
     		 res.json({"success": "true"});
     	});
     });
-    app.get('/users/:id', function(req, res) {
+    app.get('/api/users/:id', function(req, res) {
         users.findById(req.params.id, function(err,user) {
             if (err) throw err;
     	    res.json(user);
         });
     });
-    app.del('/users/:id', function(req, res) {
+    app.del('/api/users/:id', function(req, res) {
         users.removeById(req.params.id, function(err) {
             if (err) throw err;
             res.json({"success": "true"});
     	});
     });
-    app.put('/users/:id', function(req, res) {
+    app.put('/api/users/:id', function(req, res) {
         users.updateById(req.body.id, {
         	name: req.body.name,
     		surname: req.body.surname,

@@ -1,7 +1,7 @@
 module.exports = function(app) {
     
 // <--------------------------------- DB API FUNCTIONS --------------------------------->    
-    app.get('/users', function(req, res) {
+    app.get('/api/jqgrid/users', function(req, res) {
         console.log(req.query);
     	dbconnection.collection('users').count(function(err, totalCount) {
     		dbconnection.collection('users').find()
@@ -21,7 +21,7 @@ module.exports = function(app) {
     	});
     });
     
-    app.post('/users', function(req, res) {
+    app.post('/api/jqgrid/users', function(req, res) {
         console.log(req.body);
         if (req.body.oper === 'del' ) {
             dbconnection.collection('users').removeById(req.body.id, function(err) {
