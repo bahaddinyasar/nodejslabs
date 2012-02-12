@@ -28,7 +28,7 @@ module.exports = {
 		},
 		"delete" : {
 			"url":"/api/users/:id", 
-			"method":"delete",
+			"method":"_delete",
 			"description":"delete your own user, attention: cant be undone",
 			"auth":true
 		}
@@ -88,7 +88,7 @@ module.exports = {
 	}, 
     
     // DELETE /users/:id
-	delete: function(req, res) {
+	_delete: function(req, res) {
 	    var users = dbconnection.collection('users');
         users.removeById(req.params.id, function(err) {
             if (err)  {
