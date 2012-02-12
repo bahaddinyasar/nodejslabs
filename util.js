@@ -39,7 +39,7 @@ module.exports.requireRoutes = function(app) {
                 bootController(app,file);
         });
     }
-    app.get("/show_available_interfaces", function(req, res){
+    app.get("/api", function(req, res){
             res.send(mappingString);
         });
 };
