@@ -7,7 +7,8 @@ util = require('./util.js');
 require('./configuration.js').boot(app); 
 require('./authorization.js')(app); 
 
-util.requireCodeForApp(__dirname+'/routes',app); 
+//util.requireCodeForApp(__dirname+'/routes',app); 
+util.requireRoutes(app); 
 
 require('./chat.js')(io);
 
