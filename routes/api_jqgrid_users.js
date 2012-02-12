@@ -1,5 +1,8 @@
-module.exports = function(app) {
+
+var api_users = require(__dirname+'/api_users');
     
+module.exports = function(app) {
+
 // <--------------------------------- DB API FUNCTIONS --------------------------------->    
     app.get('/api/jqgrid/users', function(req, res) {
         console.log(req.query);
@@ -41,6 +44,8 @@ module.exports = function(app) {
         	});
         }
         else if (req.body.oper === 'edit'){
+            api_users._update(req, res);   
+            /*
             dbconnection.collection('users').updateById(req.body.id, {
         		name: req.body.name,
         		surname: req.body.surname,
@@ -50,6 +55,7 @@ module.exports = function(app) {
         	}, function() {
         		 res.json({"success": "true"});
         	});
+            */
         }
     });
 // >--------------------------------- DB API FUNCTIONS ---------------------------------<   
