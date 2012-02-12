@@ -3,31 +3,31 @@ var users = dbconnection.collection('users');
 module.exports = {
     mapping: {
 		"index" : {
-			"url":"/users", 
+			"url":"/api/users", 
 			"method":"get", 
 			"description":"retrieve all users",
 			"auth":false
 		},
 		"create" : {
-			"url":"/users", 
+			"url":"/api/users", 
 			"method":"put",
 			"description":"create a new user",
 			"auth":false
 		},
 		"read" : {
-			"url":"/users/:id", 
+			"url":"/api/users/:id", 
 			"method":"get",
 			"description":"get a single user by id",
 			"auth":false
 		},
 		"update" : {
-			"url":"/users/:id", 
+			"url":"/api/users/:id", 
 			"method":"post",
 			"description":"update a given user",
 			"auth":false
 		},
 		"delete" : {
-			"url":"/users/:id", 
+			"url":"/api/users/:id", 
 			"method":"delete",
 			"description":"delete your own user, attention: cant be undone",
 			"auth":true
