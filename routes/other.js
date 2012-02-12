@@ -1,7 +1,18 @@
-module.exports = function(app) {
-  
-    app.get('/ping', function(req, res) {
+module.exports = {
+    
+    mapping: {
+            "ping" : {
+    		"url":"/ping", 
+			"method":"get", 
+			"description":"dummy ping method",
+			"auth":false
+		}
+    },
+    ping : function(req, res) {
         res.send('pong');
-    });  
+    }
+        
+  
+   
     
 };
