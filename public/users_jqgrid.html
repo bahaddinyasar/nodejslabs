@@ -22,8 +22,8 @@
             // grid options:  http://www.trirand.com/jqgridwiki/doku.php?id=wiki%3aoptions
             jQuery(function(){
                 jQuery("#users_grid").jqGrid({
-                    url: '/users',
-                    editurl: '/users',
+                    url: '/api/jqgrid/users',
+                    editurl: '/api/jqgrid/users',
                     datatype: "json",
                     colNames: [/*'ID',*/ 'Name', 'Surname', 'Age', 'Email', 'Gender'],
                     colModel: [
