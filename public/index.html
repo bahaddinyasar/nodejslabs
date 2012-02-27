@@ -6,25 +6,61 @@
   <meta name="description" content="NodeJsLabs">
   <meta name="author" content="Bahaddin Yasar, Inanc Sevinc">
   <title>NodeJsLabs Main Page</title>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
   <style type="text/css">
-    body {
-        color: #211922;
-        font-family: "helvetica neue",arial,sans-serif;
-        font-size: 18px;
+    html {
+        background: none;
     }
-    .mainContainerDiv{
+    body {
+     background-color: #46483e;
+     color: #211922;
+     height:100%;
+     font-size: 18px;
+     font-family: "helvetica neue",arial,sans-serif;
+    }
+    #mainContent{
         background: none repeat scroll 0 0 #FFFFFF;
-        border-color: #E5EEF4;
-        border-style: solid;
-        border-width: 0 1px 1px;
-        box-shadow: 0 0 30px -10px #88B3CF;
-        padding: 0 20px 36px;
+        box-shadow:20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
+        -webkit-box-shadow: 20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
+        -moz-box-shadow: 20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
         position: relative;
+        padding:30px;
         width: 800px;
-        margin: auto;
+        margin: 0px auto;
+        margin-top:20px;
+        border-radius:5px;
+    }
+    #header {
+        padding:15px 20px 15px 20px;
+        margin:0px;
+        width: 100%;
+        background-color: #33342D;
+    }
+    #header a {
+        color:#ffffff;
+        text-decoration:none;
+        padding: 0px 10px 0px 10px;
+    }
+    #header a:hover {
+        text-decoration:underline;
+    }
+    a {
+        text-decoration:none;
+    }
+    a:hover {
+        text-decoration:underline;
+    }
+    #footer {
+        width: 100%;
+        background-color: #000000;
+    }
+    .title1 {
+        display:block;
+        font-size:150%; 
+        margin-bottom:5px;
     }
     ul.allLinks a {
         -moz-transition: all 0.2s ease-in-out 0s;
@@ -37,14 +73,28 @@
         outline: medium none;
         text-decoration: none;
     }
+    ul.allLinks a:hover {
+        background: none repeat scroll 0 0 #DFDFDF;
+        text-decoration: none;
+        color: #CB2027;
+    }
     ul.allLinks li {
         list-style: none outside none !important;
     }
   </style>
 </head>
-
 <body>
-    <div class="mainContainerDiv">
+    <a href="https://github.com/inancsevinc/nodejslabs">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
+    <div id="header">
+         <a href="/index.html">Home</a>  
+         <a href="/about.html">About</a> 
+    </div>
+
+    <div id="mainContent">
+        <span class="title1">Examples</span>
         <ul class="allLinks"><br>
             <li><a href="/api">API</a></li> <br>
             <li><a href="/code.html">Source Codes</a></li> <br>
