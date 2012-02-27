@@ -10,6 +10,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
   <style type="text/css">
+    body {
+        color: #211922;
+        font-family: "helvetica neue",arial,sans-serif;
+        font-size: 18px;
+    }
     .mainContainerDiv{
         background: none repeat scroll 0 0 #FFFFFF;
         border-color: #E5EEF4;
@@ -21,22 +26,33 @@
         width: 800px;
         margin: auto;
     }
+    ul.allLinks a {
+        -moz-transition: all 0.2s ease-in-out 0s;
+        background: none repeat scroll 0 0 #FFFFFF;
+        box-shadow: 0 2px 5px rgba(75, 75, 75, 0.7);
+        /*display: block;*/
+        font-weight: 200;
+        padding: 8px 10px;
+        color: #221919;
+        outline: medium none;
+        text-decoration: none;
+    }
+    ul.allLinks li {
+        list-style: none outside none !important;
+    }
   </style>
 </head>
 
 <body>
-<div class="mainContainerDiv">
-<a href="/api">API</a>
-<br/>
-<a href="/code.html">Source Codes</a>
-<br/>
-<a href="/chat.html">Chat</a>
-<br/>
-<a href="/secure/session">Secure Session</a>
-<br/>
-<a href="/login">Login</a>
-<br/>
-<a href="/users_jqgrid.html">Users - jqGrid Implementation</a>
-</div>
+    <div class="mainContainerDiv">
+        <ul class="allLinks"><br>
+            <li><a href="/api">API</a></li> <br>
+            <li><a href="/code.html">Source Codes</a></li> <br>
+            <li><a href="/chat.html">Chat</a></li> <br>
+            <li><a href="/secure/session">Secure Session</a></li> <br>
+            <li><a href="/login">Login</a></li> <br>
+            <li><a href="/users_jqgrid.html">Users - jqGrid Implementation</a></li>
+        </ul>
+    </div>
 </body>
 </html>
