@@ -1,0 +1,78 @@
+#footer{
+    background: none repeat scroll 0 0 #ededdc;
+    box-shadow:20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
+    -webkit-box-shadow: 20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
+    -moz-box-shadow: 20px 0px 30px -10px #000000, -20px 0px 30px -10px #000000;
+    position: relative;
+    padding:0px 30px 0px 30px;
+    width: 800px;
+    margin: 0px auto;
+    margin-top:20px;
+    border-radius:5px;
+    height: 80px;
+}
+
+#footer .linkedin a {
+    color: #000000;
+    opacity: 0.50;
+    -moz-transition: background-color 0.25s ease 0s, color 0.5s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
+    box-shadow: 2px 2px 2px transparent;
+    border: 1px solid #CCCCCC;
+    color: #848484;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: 63px;
+    line-height: 18px;
+    /*margin: 3px 0;*/
+    padding-top: 14px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px transparent;
+    width: 250px;
+}
+
+#footer .footerLeft{
+    width:50%; 
+    padding:0;
+    margin:0;
+    position:relative; 
+    float:left;
+}
+
+#footer .footerLeft a{
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    background: url("/images/icons.png") no-repeat scroll 100% 0 transparent;
+    background-position: 100% -198px;
+    left: -19px;
+    padding-left: 19px;
+    float:left;
+}
+
+#footer .footerRight{
+    width:50%;
+    position:relative;
+    float:right;
+}
+
+#footer .footerRight a{
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    background: url("/images/icons.png") no-repeat scroll 100% 0 transparent;
+    background-position: 0% -198px;
+    right: -19px;
+    padding-right: 19px;
+    float:right;
+    text-align:right;
+}
+
+#footer .linkedin a:hover, #footer .linkedin a:focus {
+    -moz-transition: background-color 0.25s ease 0s, color 0.25s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.42);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.82);
+    width: 300px;
+    background-color: #006699;
+    color: #FFFFFF;
+    opacity: 1;
+}
