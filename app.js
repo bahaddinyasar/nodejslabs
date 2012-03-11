@@ -14,4 +14,4 @@ util.requireRoutes(app);
 require('./chat.js')(io);
 
 app.listen(port);
-console.log("Express server listening on port %d",port);
+console.log("Express server listening on port number %d",port);
