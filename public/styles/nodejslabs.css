@@ -16,6 +16,7 @@
     color: #000000;
     opacity: 0.50;
     -moz-transition: background-color 0.25s ease 0s, color 0.5s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
+    -webkit-transition: background-color 0.25s ease 0s, color 0.5s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
     box-shadow: 2px 2px 2px transparent;
     border: 1px solid #CCCCCC;
     color: #848484;
@@ -69,6 +70,7 @@
 
 #footer .linkedin a:hover, #footer .linkedin a:focus {
     -moz-transition: background-color 0.25s ease 0s, color 0.25s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
+    -webkit-transition: background-color 0.25s ease 0s, color 0.25s ease 0s, width 0.2s ease-out 0s, -webkit-box-shadow 0.25s ease 0s, text-shadow 0.2s ease 0s, opacity 0.2s ease 0s;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.42);
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.82);
     width: 300px;
