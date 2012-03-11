@@ -23,8 +23,8 @@ module.exports.boot = function (app) {
 
     everyauth.debug = true;
     everyauth.twitter
-    .consumerKey('RrOhI3kPbI3fsaIjYklKkg')
-    .consumerSecret('l8oH2Ela9WV0UFfdGrF62kuGXU1qKhZjO3dvIdJ7h0')
+    .consumerKey(config.twitter.consumerKey)
+    .consumerSecret(config.twitter.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
       return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
     })
