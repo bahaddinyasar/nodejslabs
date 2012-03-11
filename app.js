@@ -1,7 +1,7 @@
 var app = require('express').createServer(),
     io = require('socket.io').listen(app);
 
-config = require("config.json");
+config = require("./config.json");
 
 // to make util global, omit var. 
 util = require('./util.js');
