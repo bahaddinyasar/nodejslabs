@@ -1,6 +1,7 @@
 var app = require('express').createServer(),
-    io = require('socket.io').listen(app),
-    port = 8090;
+    io = require('socket.io').listen(app);
+
+config = require("config.json");
 
 // to make util global, omit var. 
 util = require('./util.js');
@@ -13,5 +14,5 @@ util.requireRoutes(app);
 
 require('./chat.js')(io);
 
-app.listen(port);
-console.log("Express server listening on port number %d",port);
+app.listen(config.app.port);
+console.log("Express server listening on port number %d", config.app.port);
