@@ -77,42 +77,71 @@ module.exports = {
 
 	// GET /api/pikz/lists/:lid
 	readList : function(req, res) {
-		var whereQueryString = encodeURIComponent('{"list": {"__type": "Pointer", "className": "List", "objectId": "'
-				+ req.params.lid + '"}}');
+		console.log("readList handler is started with the given parameter lid: " + req.params.lid);
+
+		var whereQueryString = JSON.stringify({"list": {"__type": "Pointer", "className": "List", "objectId": req.params.lid}});
 		
 		var queryString = querystring.stringify({
 			"where" : whereQueryString,
 			"include" : "list",
 			"order" : "dateTaken"
 		});
+
 		
-		console.log("sorgu oncesi. query: " + queryString);
+		var options = {
+				"host"	: "api.parse.com",
+				"port"	: "443",
+				"path"	: "/1/classes/Pik?" + queryString,
+				"method": 'GET',
+				"headers" : {
+					"X-Parse-Application-Id" : config.pikz.parse.id,
+					"X-Parse-REST-API-Key" : config.pikz.parse.key
+				}
+		};
 		
-		https.get({
-			//"host" : "api.parse.com",
-			//"port" : 443,
-			"host" : "127.0.0.1",
-			"port" : "8977",
-			"path" : "/1/classes/Pik?" + queryString,
-			"headers" : {
-				"X-Parse-Application-Id" : config.pikz.parse.id,
-				"X-Parse-REST-API-Key" : config.pikz.parse.key
-			}
-		}, function(response) {
-			console.dir(response);
-			res.json({
-				"success" : "true"
-			});
-		}).on("error", function(e) {
+		console.log("url path: " + options.path); 
+		
+		var listReq = https.request(options);
+		
+	    // when the response comes back
+		listReq.on('response', function(listResponse){
+			listResponse.body = '';
+			listResponse.setEncoding('utf-8');
+
+	        // concat chunks
+			listResponse.on('data', function(chunk){ listResponse.body += chunk });
+
+	        // when the response has finished
+			listResponse.on('end', function(){
+				console.log("data is getted");
+				console.log("data is :" + listResponse.body);
+				
+				var dataAsJsonn = JSON.parse(""+listResponse.body);
+				
+				console.dir(dataAsJsonn);
+				
+				res.json({
+					"success"	:	"true",
+					"results"	:	dataAsJsonn.results
+				});
+	        });
+	    });
+
+		listReq.on("error", function(e) {
+			console.log("response is not successful...");
 			res.json({
 				"success" : "false",
 				"errorMsg" : e.message
 			});
 		});
+		
+	    // end the request
+		listReq.end();
 	},
 
 	// GET /api/pikz/lists/:lid/photos/:pid
 	readPhoto : function(req, res) {
+		/*
 		users.findById(req.params.id, function(err, user) {
 			if (err) {
 				res.json({
@@ -126,6 +155,7 @@ module.exports = {
 				});
 			}
 		});
+		*/
 	}
 
 }
