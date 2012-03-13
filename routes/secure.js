@@ -36,12 +36,12 @@ module.exports = {
     
     // GET /secure/twitterUser
     secureTwitterUser: function(req, res) {
-        res.redirect('/secure/twitterUser');
+        res.render('twitterUser');
     }, 
     
     // GET /secure/facebookUser
     secureFacebookUser: function(req, res) {
-        res.redirect('/secure/facebookUser');
+        res.render('facebookUser');
     },  
     
     // GET /secure/session
