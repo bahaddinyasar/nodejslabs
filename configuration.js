@@ -43,6 +43,7 @@ module.exports.boot = function (app) {
         app.use(express.cookieParser());
         app.use(express.session({ secret: "nodejslabssecret" }));
         app.use(everyauth.middleware());
+        app.set('views', __dirname + '/views');
         app.set('view engine', 'jade');
         app.set("view options", {layout: false});
     	app.use(app.router);
