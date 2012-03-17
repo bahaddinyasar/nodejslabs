@@ -43,7 +43,7 @@ module.exports = {
     apiJqgridUsersPost: function(req, res) {
         console.log(req.body);
         if (req.body.oper === 'del' ) {
-            api_users.delete(req, res);
+            api_users.deleteUser(req, res);
         }
         else if (req.body.oper === 'add'){
         	api_users.create(req, res);
