@@ -26,7 +26,7 @@ module.exports = {
 			"description":"update a given user",
 			"auth":false
 		},
-		"delete" : {
+		"deleteUser" : {
 			"url":"/api/users/:id", 
 			"method":"delete",
 			"description":"delete your own user, attention: cant be undone",
@@ -88,7 +88,7 @@ module.exports = {
 	}, 
     
     // DELETE /users/:id
-	delete: function(req, res) {
+	deleteUser: function(req, res) {
         var theId = req.params.id ? req.params.id : req.body.id;  
         users.removeById(theId, function(err) {
             if (err)  {
