@@ -3,3 +3,5 @@ node_modules
 /config.json
 .settings
 .project
+nodejslabs.sublime-project
+nodejslabs.sublime-workspace
